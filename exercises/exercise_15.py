@@ -1,32 +1,21 @@
-# Prompt the user to enter a simple arithmetic expression.
-expression = input("Enter a simple arithmetic expression: ")
-
-# Define the variables to store the numbers and the operator.
-number1 = operator = number2 = ""
-
-# Iterate through the expression.
-for char in expression:
-    # If the character is a digit, append it to the first number.
+# Your solution to Exercise 15
+n = input("Enter an arithmetic expression")
+num1 = ""
+num2 = ""
+operator = ""
+for char in n:
     if char.isdigit():
-        if operator == "":
-            number1 += char
-        else:
-            number2 += char
-    # If the character is an operator, store it.
+        num1 += char
     else:
         operator = char
-
-# Convert the numbers to integers.
-number1 = int(number1)
-number2 = int(number2)
-
-# Perform the operation based on the operator.
+        break
+operator_position = n.find(operator)
+for i in range (operator_position+1,len(n)):
+    num2 += n[i]
 if operator == "+":
-    result = number1 + number2
+    value = int(num1) + int(num2)
 elif operator == "-":
-    result = number1 - number2
+    value = int(num1) - int(num2)
 else:
-    result = number1 * number2
-
-# Print the result.
-print(result)
+    value = int(num1) * int(num2)
+print(value)
